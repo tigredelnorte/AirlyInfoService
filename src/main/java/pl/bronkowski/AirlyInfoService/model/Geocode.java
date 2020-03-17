@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm.model;
+package pl.bronkowski.AirlyInfoService.model;
 
 import javax.persistence.Entity;
 

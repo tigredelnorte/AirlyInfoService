@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm;
+package pl.bronkowski.AirlyInfoService;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
@@ -7,13 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
-import pl.bronkowski.AirlySmsAlarm.EmailService.Email;
-import pl.bronkowski.AirlySmsAlarm.EmailService.EmailSendingApp;
-import pl.bronkowski.AirlySmsAlarm.airlyModel.AirlyModel;
-import pl.bronkowski.AirlySmsAlarm.controller.UserController;
-import pl.bronkowski.AirlySmsAlarm.model.User;
-import pl.bronkowski.AirlySmsAlarm.repository.UserRepository;
-import pl.bronkowski.AirlySmsAlarm.service.AirlyPolutionCallService;
+import pl.bronkowski.AirlyInfoService.EmailService.Email;
+import pl.bronkowski.AirlyInfoService.EmailService.EmailSendingApp;
+import pl.bronkowski.AirlyInfoService.airlyModel.AirlyModel;
+import pl.bronkowski.AirlyInfoService.controller.UserController;
+import pl.bronkowski.AirlyInfoService.model.User;
+import pl.bronkowski.AirlyInfoService.repository.UserRepository;
 
 @Component
 public class AirlyClientScheduler {
@@ -40,15 +39,12 @@ public class AirlyClientScheduler {
 				try {
 					userController.updateUser(currentUser, currentUser.getId());
 				} catch (URISyntaxException e) {
-					// TODO Auto-generated catch block
-					System.out.println("SUper");
 				}
 			}
 			
 			AirlyModel airlyData = airlyPolutionCallService.getAirlyData(currentUser.getId());
 				try {
 					Thread.sleep(1000);					
-					System.out.println("Poszło");
 				} catch (InterruptedException e) {
 				}
 	

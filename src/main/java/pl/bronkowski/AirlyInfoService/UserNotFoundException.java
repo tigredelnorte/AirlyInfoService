@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm;
+package pl.bronkowski.AirlyInfoService;
 
 public class UserNotFoundException extends RuntimeException{
 	

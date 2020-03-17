@@ -1,11 +1,11 @@
-package pl.bronkowski.AirlySmsAlarm.model;
+package pl.bronkowski.AirlyInfoService.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
 import lombok.Data;
-import pl.bronkowski.AirlySmsAlarm.AddressToGeocodeConverter;
+import pl.bronkowski.AirlyInfoService.AddressToGeocodeConverter;
 
 @Entity
 @Data

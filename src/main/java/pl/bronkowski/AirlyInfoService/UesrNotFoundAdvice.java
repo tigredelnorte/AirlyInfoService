@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm;
+package pl.bronkowski.AirlyInfoService;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

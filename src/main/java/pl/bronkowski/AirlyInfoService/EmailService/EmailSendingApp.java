@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm.EmailService;
+package pl.bronkowski.AirlyInfoService.EmailService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;

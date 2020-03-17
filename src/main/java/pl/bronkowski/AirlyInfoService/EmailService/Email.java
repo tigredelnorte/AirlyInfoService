@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm.EmailService;
+package pl.bronkowski.AirlyInfoService.EmailService;
 
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;

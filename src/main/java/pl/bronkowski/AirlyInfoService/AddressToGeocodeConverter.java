@@ -1,8 +1,8 @@
-package pl.bronkowski.AirlySmsAlarm;
+package pl.bronkowski.AirlyInfoService;
 
 import org.springframework.web.client.RestTemplate;
 
-import pl.bronkowski.AirlySmsAlarm.model.Geocode;
+import pl.bronkowski.AirlyInfoService.model.Geocode;
 
 
 public class AddressToGeocodeConverter {

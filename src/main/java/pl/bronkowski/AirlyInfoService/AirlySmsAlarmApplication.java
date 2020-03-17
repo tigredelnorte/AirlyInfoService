@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm;
+package pl.bronkowski.AirlyInfoService;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

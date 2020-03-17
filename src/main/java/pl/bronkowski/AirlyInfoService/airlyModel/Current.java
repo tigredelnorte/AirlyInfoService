@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm.airlyModel;
+package pl.bronkowski.AirlyInfoService.airlyModel;
 
 import java.util.List;
 

@@ -1,3 +1,4 @@
+package pl.bronkowski.AirlyInfoService.repository;
 //package pl.bronkowski.AirlySmsAlarm.repository;
 //
 //import org.springframework.data.jpa.repository.JpaRepository;

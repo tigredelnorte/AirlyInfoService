@@ -1,4 +1,4 @@
-package pl.bronkowski.AirlySmsAlarm.controller;
+package pl.bronkowski.AirlyInfoService.controller;
 
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.linkTo;
 import static org.springframework.hateoas.server.mvc.WebMvcLinkBuilder.methodOn;
@@ -20,9 +20,9 @@ import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
-import pl.bronkowski.AirlySmsAlarm.UserEntityModelAssembler;
-import pl.bronkowski.AirlySmsAlarm.model.User;
-import pl.bronkowski.AirlySmsAlarm.repository.UserRepository;;
+import pl.bronkowski.AirlyInfoService.UserEntityModelAssembler;
+import pl.bronkowski.AirlyInfoService.model.User;
+import pl.bronkowski.AirlyInfoService.repository.UserRepository;;
 
 @RestController
 public class UserController {
