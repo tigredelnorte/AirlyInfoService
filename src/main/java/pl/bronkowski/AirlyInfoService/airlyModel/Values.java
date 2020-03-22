@@ -7,6 +7,6 @@ import lombok.Data;
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true )
 public class Values {
-	private String name; 
-	private double value; 
+	private String name;
+	private Double value;
 }

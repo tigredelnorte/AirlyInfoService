@@ -27,13 +27,12 @@ import pl.bronkowski.AirlyInfoService.repository.UserRepository;;
 @RestController
 public class UserController {
 
-	@Autowired
 	private final UserRepository repository;
-	
-	@Autowired
+
 	private final UserEntityModelAssembler assembler;
 
-	UserController(UserRepository repository, UserEntityModelAssembler assembler) {
+	//constructor injection !!!!!!!!!!! zalecane
+	public UserController(UserRepository repository, UserEntityModelAssembler assembler) {
 		this.repository = repository;
 		this.assembler = assembler;
 	}

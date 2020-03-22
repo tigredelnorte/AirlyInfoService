@@ -10,10 +10,11 @@ import org.springframework.web.client.RestTemplate;
 @EnableScheduling
 public class AirlySmsAlarmApplication {
 
-	public static void main(String[] args) {
-		SpringApplication.run(AirlySmsAlarmApplication.class, args);
-		System.out.println("Hello World!");
-	}
+    public static void main(String[] args) {
+
+        SpringApplication.run(AirlySmsAlarmApplication.class, args);
+        System.out.println("Hello World!");
+    }
 
     @Bean
     public RestTemplate getRestTemplate() {
