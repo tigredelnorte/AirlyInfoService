@@ -1,39 +1,44 @@
 package pl.bronkowski.AirlyInfoService;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.client.RestTemplate;
 
 import pl.bronkowski.AirlyInfoService.airlyModel.AirlyModel;
 import pl.bronkowski.AirlyInfoService.controller.UserController;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 @Component
 public class AirlyPolutionCallService {
 
-	@Autowired
-	UserController userController;
+	private static final String AIRLY_API_URL = "http://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&lat=%s&lng=%s&maxDistanceKM=3&apikey=Bz1luw9XtxsQ5VVVvYGpSEamcF8uuSEp";
 
+	//user controller nie potrzebny - użyć user service który zostanie dodany pomiedzy repo i controller!!!!!!!!!!!!!
+	private final UserController userController;
+
+	private final RestTemplate restTemplate;
 //	Dlaczego podpięcie UserRepository wypierdala aplikacje??? CommandLineRunner failed to execute!!!!!
 
 
-	int counter = 0;
+	private final AtomicInteger counter = new AtomicInteger();
+
+	public AirlyPolutionCallService(UserController userController, RestTemplate restTemplate) {
+		this.userController = userController;
+		this.restTemplate = restTemplate;
+	}
+
 	//@GetMapping("/airly/{userId}")
+	//tu jako argument dostajemy Geocode geocode
+	//AIrly service nie musi nic wiedziec o userservice
 	public AirlyModel getAirlyData(Long userId) {
 
 		String latt = userController.getById(userId).getContent().getLatt();
 		
 		String longt = userController.getById(userId).getContent().getLongt();
 
-		String AIRLY_API_URL = "http://airapi.airly.eu/v2/measurements/nearest?indexType=AIRLY_CAQI&lat="+latt+"&lng="+longt+"&maxDistanceKM=3&apikey=Bz1luw9XtxsQ5VVVvYGpSEamcF8uuSEp";
-
-		
-		RestTemplate restTemplate = new RestTemplate();
-		ResponseEntity<AirlyModel> response = restTemplate.getForEntity(AIRLY_API_URL, AirlyModel.class);
-		System.out.println("Counter = "+counter+" "+response.getBody());
-		counter++;
+		ResponseEntity<AirlyModel> response = restTemplate.getForEntity(String.format(AIRLY_API_URL, longt, latt), AirlyModel.class);
+		System.out.println("Counter = "+counter.incrementAndGet()+" "+response.getBody());
 		return response.getBody();
 	}
 	

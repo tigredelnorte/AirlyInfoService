@@ -35,7 +35,7 @@ public class AirlyClientScheduler {
 		for(int i=0; i<users.size(); i++) {
 			User currentUser = users.get(i);
 			if(currentUser.getLatt()==null || currentUser.getLongt()==null) {
-				currentUser.setUserGeocode(currentUser.getUserAddress());
+				currentUser.setUserAddress(currentUser.getUserAddress());
 				try {
 					userController.updateUser(currentUser, currentUser.getId());
 				} catch (URISyntaxException e) {
@@ -44,10 +44,11 @@ public class AirlyClientScheduler {
 			
 			AirlyModel airlyData = airlyPolutionCallService.getAirlyData(currentUser.getId());
 				try {
-					Thread.sleep(1000);					
+					Thread.sleep(1000);
 				} catch (InterruptedException e) {
 				}
-	
+
+				//wydzielic do osobnej klasy np emailBuilder/emailUtil/itp
 			Email email = new Email();
 			email.setToEmail(currentUser.getEmail());
 			email.setFromName(currentUser.getUserName());
